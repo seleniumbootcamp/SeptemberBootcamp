@@ -185,6 +185,11 @@ public interface Element {
 	 * @return True if the element is currently selected or checked, false otherwise.
 	 */
 	 boolean verifySelected(WebElement ele);
+	 
+	 public void actionSendKeys(WebElement ele,String value) ;
+	 
+	
+	
 	
 }
 

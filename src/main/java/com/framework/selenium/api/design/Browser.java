@@ -3,11 +3,14 @@ package com.framework.selenium.api.design;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.NoSuchWindowException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public interface Browser {
 	
@@ -177,9 +180,33 @@ public interface Browser {
 	 */
 	public void quit();
 
+	/**
+	 * This method will verify if the element (Radio button, Checkbox) is selected
+	 * @param ele   - The Webelement (Radio button, Checkbox) to be verified
+	 * @author Sankar - Clinisys
+	 * @see locateElement method in Browser Class
+	 * @return True if the element is currently selected or checked, false otherwise.
+	 */
+	public void waitUntilInvisibilityOfElement(Locators locator, String locatorValue);
 	
+	 /**
+	 * This method will verify if the element (Radio button, Checkbox) is selected
+	 * @param ele   - The Webelement (Radio button, Checkbox) to be verified
+	 * @author Sankar - Clinisys
+	 * @see locateElement method in Browser Class
+	 * @return True if the element is currently selected or checked, false otherwise.
+	 */
+	public void waitUntilStalenessof(WebElement ele);
 	
-	
+	 /**
+	 * This method will verify if the element (Radio button, Checkbox) is selected
+	 * @param ele   - The Webelement (Radio button, Checkbox) to be verified
+	 * @author Sankar - Clinisys
+	 * @see locateElement method in Browser Class
+	 * @return True if the element is currently selected or checked, false otherwise.
+	 */
+	public void waitUntilElementLocated(Locators locator, String locatorValue);
+
 	
 
 	

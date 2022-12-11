@@ -58,6 +58,15 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		act.moveToElement(ele).perform();
 	}
 	
+	public void actionSendKeys(WebElement ele, String value) {
+		ele.clear();
+	pause(500);
+	ele.click();
+		act = new Actions(getDriver());
+act.sendKeys(value).build().perform();	
+}
+	
+	
 	protected void dragAndDrop(WebElement eleSoutce, WebElement eleTarget) {
 		act = new Actions(getDriver());
 		act.dragAndDrop(eleSoutce, eleTarget).perform();
@@ -85,7 +94,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		reportStep("Element double clicked", "info");
 	}
 
-	public void waitForApperance(WebElement element) {
+	public void waitForAppearance(WebElement element) {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -349,6 +358,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 	@Override
 	public String getElementText(WebElement ele) {
 		try {
+			getWait().until(ExpectedConditions.visibilityOf(ele));
 			String text = ele.getText();
 			reportStep("Text has been retrieved " + text, "info");
 			return text;
@@ -984,6 +994,89 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		projectId = Integer.toString(ranNum1);
 		auctionRef = Integer.toString(ranNum2);
 	}
+
+	
+	public void waitUntilStalenessof(WebElement ele) {
+	//	WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+		try {
+			getWait().until(ExpectedConditions.stalenessOf(ele));
+		} catch (WebDriverException e) {
+			reportStep("The Element " + ele + " is not staled " + e.getMessage(), "fail");
+
+		}
+
+	}
+	public void waitUntilInvisibilityOfElement(Locators locatorType, String locatorValue) {
+		try {
+switch (locatorType) {
+			
+			case CLASS_NAME:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.className(locatorValue)));
+			case CSS:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(locatorValue)));
+			case ID:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.id(locatorValue)));
+				
+			case LINK_TEXT:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.linkText(locatorValue)));
+			case NAME:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.name(locatorValue)));
+			case PARTIAL_LINKTEXT:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.partialLinkText(locatorValue)));
+			case TAGNAME:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.tagName(locatorValue)));
+			case XPATH:
+				getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locatorValue)));
+				
+			default:
+				System.err.println("Locator is not Valid");
+				break;
+			}
+		} catch (Exception e) {
+			reportStep("The element is not disappeared.", "FAIL");
+
+		}
+	}
+	
+	public void waitUntilElementLocated(Locators locatorType, String locatorValue) {
+	
+		try {
+			switch (locatorType) {
+			
+			case CLASS_NAME:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.className(locatorValue)));
+			case CSS:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locatorValue)));
+			case ID:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.id(locatorValue)));
+				
+			case LINK_TEXT:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.linkText(locatorValue)));
+			case NAME:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.name(locatorValue)));
+			case PARTIAL_LINKTEXT:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText(locatorValue)));
+			case TAGNAME:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.tagName(locatorValue)));
+			case XPATH:
+				getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorValue)));
+				
+			default:
+				System.err.println("Locator is not Valid");
+				break;
+			}
+		} 
+		
+		catch (NoSuchElementException e) {
+			reportStep("The Element with locator:" + locatorType + " Not Found with value: " + locatorValue + "\n"
+					+ e.getMessage(), "fail");
+		} catch (Exception e) {
+			reportStep("The element with locator " + locatorType + " not found.", "FAIL");
+
+		}
+	}
+
 
 	
 }

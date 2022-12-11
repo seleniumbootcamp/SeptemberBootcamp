@@ -16,7 +16,7 @@ public class TC001_VerifyLogin extends ProjectSpecificMethods{
 		excelFileName="Login";
 	}
 	
-	@Test(dataProvider = "fetchData")
+	@Test(dataProvider = "Dynamic_Data")
 	public void runLogin(String username, String password) {
 		new LoginPage()
 		.enterUsername(username)
