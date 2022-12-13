@@ -1,7 +1,5 @@
 package com.salesforce.pages;
 
-import org.apache.tools.ant.property.GetProperty;
-
 import com.framework.selenium.api.design.Locators;
 import com.framework.testng.api.base.ProjectSpecificMethods;
 
@@ -10,6 +8,8 @@ public class ServiceConsolePage extends ProjectSpecificMethods {
 	public ServiceConsolePage clickOnDropdown() {
 		waitUntilElementLocated(Locators.XPATH, prop.getProperty("serviceconsole.dropdown.xpath"));
 		click(locateElement(Locators.XPATH,prop.getProperty("serviceconsole.dropdown.xpath")));
+		//clickUsingJs(locateElement(Locators.XPATH,prop.getProperty("serviceconsole.dropdown.xpath")));
+		
 		pause(5000);
 		reportStep("Service Console dropdown is clicked successfully", "pass");
 		return new ServiceConsolePage();

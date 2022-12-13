@@ -35,12 +35,7 @@ public class ProjectSpecificMethods extends SeleniumBase {
 	public void postCondition() {
 		close();
 
-	}
-
-	
-
-	
-	  
+	} 
 
 	
 	
