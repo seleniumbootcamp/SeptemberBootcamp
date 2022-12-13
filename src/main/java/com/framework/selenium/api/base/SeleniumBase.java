@@ -840,6 +840,11 @@ act.sendKeys(value).build().perform();
 		}
 		return false;
 	}
+	
+	public String getTitleOfThePage()
+	{
+		return getDriver().getTitle();
+	}
 
 	@Override
 	public boolean verifyTitle(String title) {
