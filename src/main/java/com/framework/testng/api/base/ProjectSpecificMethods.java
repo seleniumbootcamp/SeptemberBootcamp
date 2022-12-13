@@ -25,7 +25,11 @@ public class ProjectSpecificMethods extends SeleniumBase {
 		
 		  prop = new Properties(); FileInputStream file = new FileInputStream(new
 		  File("src/main/resources/config.properties")); prop.load( file );
-		 
+		 /*
+		  * This is commited to the github
+		  * This commented lines commited to git
+		  * Resolving git conflicts
+		  */
 		startApp("chrome", false, "https://login.salesforce.com/");
 		setNode();
 //commented
