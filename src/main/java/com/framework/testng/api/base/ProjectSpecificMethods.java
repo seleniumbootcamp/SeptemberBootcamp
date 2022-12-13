@@ -31,7 +31,7 @@ public class ProjectSpecificMethods extends SeleniumBase {
 //commented
 	}
 	
-	@AfterMethod
+	@AfterMethod(enabled = false)
 	public void postCondition() {
 		close();
 

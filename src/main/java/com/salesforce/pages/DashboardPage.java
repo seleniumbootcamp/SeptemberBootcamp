@@ -24,6 +24,12 @@ public class DashboardPage extends ProjectSpecificMethods {
 		
 		return this;
 	}
+	
+	public DashboardPage enterDashboardDescription(String description) {
+		type(locateElement(Locators.ID, prop.getProperty("dashboard.description.id")), description);
+		
+		return this;
+	}
 
 	
 	public DashboardPage switchToIFrame() throws InterruptedException {

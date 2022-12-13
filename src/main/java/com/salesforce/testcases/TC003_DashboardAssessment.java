@@ -20,7 +20,7 @@ public class TC003_DashboardAssessment extends ProjectSpecificMethods{
 
 	@Test(dataProvider = "Dynamic_Data")
 	
-	public void createDashboard(String userName, String passWord,String goalValue,String dashboardName)
+	public void createDashboard(String userName, String passWord,String goalValue,String dashboardName, String dashboardDescription)
 			throws InterruptedException {
 
 		LoginPage loginPage = new LoginPage();
@@ -38,10 +38,10 @@ public class TC003_DashboardAssessment extends ProjectSpecificMethods{
 		.clickNewDashboard()
 		.switchToIFrame()
 		.enterDashboardName(dashboardName)
+		.enterDashboardDescription(dashboardDescription)
 		.clickCreateButton()
 		.switchToIFrame()
-		.clickDashboardSaveButton()
-		.switchToDefault()
+		 
 		;
 	}
 

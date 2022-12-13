@@ -7,6 +7,7 @@ public class ServiceConsolePage extends ProjectSpecificMethods {
 
 	public ServiceConsolePage clickOnDropdown() {
 		waitUntilElementLocated(Locators.XPATH, prop.getProperty("serviceconsole.dropdown.xpath"));
+		pause(1000);
 		click(locateElement(Locators.XPATH,prop.getProperty("serviceconsole.dropdown.xpath")));
 		//clickUsingJs(locateElement(Locators.XPATH,prop.getProperty("serviceconsole.dropdown.xpath")));
 		
