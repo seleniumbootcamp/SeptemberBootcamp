@@ -23,20 +23,12 @@ public class ProjectSpecificMethods extends SeleniumBase {
 
 	@BeforeMethod
 	public void preCondition() throws IOException {
-
 		prop = new Properties(); 
 		FileInputStream file = new FileInputStream(new File("src/main/resources/config.properties")); 
 		prop.load( file );
 		String url = prop.getProperty("sfurl");
 		startApp("chrome", false, url);
-		String title = getTitleOfThePage();
-		System.out.println("Title is : " + title);
-		if (title.contains("Salesforce - Developer Edition"))
-		{
-			click(locateElement(Locators.XPATH, "(//a[text()='Switch to Lightning Experience'])[1]"));
-		}
 		setNode();
-		//commented
 	}
 
 	@AfterMethod(enabled = false)
