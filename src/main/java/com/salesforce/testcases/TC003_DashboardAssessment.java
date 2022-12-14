@@ -41,7 +41,7 @@ public class TC003_DashboardAssessment extends ProjectSpecificMethods{
 		.enterDashboardDescription(dashboardDescription)
 		.clickCreateButton()
 		.switchToIFrame()
-		 
+		.clickDoneButton() 
 		;
 	}
 

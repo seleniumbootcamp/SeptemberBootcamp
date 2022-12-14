@@ -25,6 +25,7 @@ public class DashboardPage extends ProjectSpecificMethods {
 		return this;
 	}
 	
+
 	public DashboardPage enterDashboardDescription(String description) {
 		type(locateElement(Locators.ID, prop.getProperty("dashboard.description.id")), description);
 		
@@ -70,5 +71,10 @@ public class DashboardPage extends ProjectSpecificMethods {
 		Assert.assertEquals(snackText, getSnackBarMsg);
 		return this;
 	}
-
+	public DashboardPage clickDoneButton() {
+		waitUntilElementLocated(Locators.XPATH, prop.getProperty("dashboard.donebutton.xpath"));
+		click(locateElement(Locators.XPATH, prop.getProperty("dashboard.donebutton.xpath")));
+		pause(20000);
+		return this;
+	}
 }
