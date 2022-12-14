@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 import com.framework.selenium.api.base.SeleniumBase;
+import com.framework.selenium.api.design.Locators;
 import com.framework.utils.DataLibrary;
 
 public class ProjectSpecificMethods extends SeleniumBase {
@@ -19,28 +20,24 @@ public class ProjectSpecificMethods extends SeleniumBase {
 	public Object[][] fetchData() throws IOException {
 		return DataLibrary.readExcelData(excelFileName);
 	}
-	
+
 	@BeforeMethod
 	public void preCondition() throws IOException {
-		
-		  prop = new Properties(); FileInputStream file = new FileInputStream(new
-		  File("src/main/resources/config.properties")); prop.load( file );
-		 /*
-		  * This is commited to the github
-		  * This commented lines commited to git
-		  * Resolving git conflicts
-		  */
-		startApp("chrome", false, "https://login.salesforce.com/");
+		prop = new Properties(); 
+		FileInputStream file = new FileInputStream(new File("src/main/resources/config.properties")); 
+		prop.load( file );
+		String url = prop.getProperty("sfurl");
+		startApp("chrome", false, url);
 		setNode();
-//commented
 	}
 	
 	@AfterMethod(enabled = true)
+
 	public void postCondition() {
 		close();
 
 	} 
 
-	
-	
+
+
 }
