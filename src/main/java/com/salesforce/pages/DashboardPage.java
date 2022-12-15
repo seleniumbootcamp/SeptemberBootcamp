@@ -74,6 +74,14 @@ public class DashboardPage extends ProjectSpecificMethods {
 	public DashboardPage clickDoneButton() {
 		waitUntilElementLocated(Locators.XPATH, prop.getProperty("dashboard.donebutton.xpath"));
 		click(locateElement(Locators.XPATH, prop.getProperty("dashboard.donebutton.xpath")));
+		pause(2000);
+		return this;
+	}
+	
+	public DashboardPage clickDashboardLink() {
+		
+		waitUntilElementLocated(Locators.XPATH, prop.getProperty("dashboard.dashboardlink.xpath"));
+		click(locateElement(Locators.XPATH, prop.getProperty("dashboard.dashboardlink.xpath")));
 		pause(20000);
 		return this;
 	}

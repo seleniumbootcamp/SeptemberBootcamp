@@ -26,12 +26,12 @@ public class ProjectSpecificMethods extends SeleniumBase {
 		prop = new Properties(); 
 		FileInputStream file = new FileInputStream(new File("src/main/resources/config.properties")); 
 		prop.load( file );
-		String url = prop.getProperty("sfurl");
+		String url = prop.getProperty("url");
 		startApp("chrome", false, url);
 		setNode();
 	}
 	
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 
 	public void postCondition() {
 		close();

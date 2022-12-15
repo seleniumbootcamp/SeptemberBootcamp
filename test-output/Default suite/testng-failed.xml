@@ -5,7 +5,7 @@
     <classes>
       <class name="com.salesforce.testcases.TC003_DashboardAssessment">
         <methods>
-          <include name="createDashboard" invocation-numbers="1"/>
+          <include name="createDashboard" invocation-numbers="0"/>
           <include name="postCondition"/>
           <include name="endResult"/>
           <include name="startReport"/>
