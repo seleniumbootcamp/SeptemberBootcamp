@@ -31,7 +31,7 @@ public class ProjectSpecificMethods extends SeleniumBase {
 		setNode();
 	}
 	
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 
 	public void postCondition() {
 		close();
