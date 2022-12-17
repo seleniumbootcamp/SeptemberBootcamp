@@ -13,6 +13,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverInstance  {
 
+
+	public String username = "kmadhitya";
+    public String accesskey = "TD7W2wLmZXne9OtgqNEfGOWBj5ol62JeQbujKyL04bbM0G0NAH";
+    public static RemoteWebDriver driver = null;
+    public String gridURL = "@hub.lambdatest.com/wd/hub";
+    boolean status = false;
+
 	/*
 	 * public String username = "selbootcamp.sep2022"; public String accesskey =
 	 * "A20Qwo6otPRwUFIuQ7jukqO3fphGIQfFET4fvItae030VOGrG3"; public static
