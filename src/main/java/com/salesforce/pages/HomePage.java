@@ -41,4 +41,12 @@ public class HomePage extends ProjectSpecificMethods{
 		return new ServiceConsolePage();
 	}
 	
+	
+	public SalesPageHybrid clickSales()
+	{
+		waitForAppearance(locateElement(Locators.XPATH, prop.getProperty("HomePage.Sales.xpath")));
+		click(locateElement(Locators.XPATH, prop.getProperty("HomePage.Sales.xpath")));
+		reportStep("Clicked Sales tab successfully","pass");
+		return new SalesPageHybrid();
+	}
 }
