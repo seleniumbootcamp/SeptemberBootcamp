@@ -20,7 +20,7 @@ public class TC002_CreateALeadHybrid extends ProjectSpecificMethods {
 		excelFileName="CreateLead";
 	}
 	
-	@Test(dataProvider = "fetchData")
+	@Test(dataProvider = "Dynamic_Data")
 	public void createLeadTC002Hybrid(String lastName, String company, String expected) throws InterruptedException {
 		
 		new LoginPageHybrid().enterUsername().enterPassword().clickLogin()
