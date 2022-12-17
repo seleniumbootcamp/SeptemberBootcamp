@@ -1,5 +1,6 @@
 package com.salesforce.testcases;
 
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -44,6 +45,8 @@ public class TC003_DashboardAssessment extends ProjectSpecificMethods{
 		.clickDoneButton()
 		.switchToDefault()
 		.clickDashboardLink()
+		//.searchRecentDashboard(dashboardName)
+		
 		;
 	}
 

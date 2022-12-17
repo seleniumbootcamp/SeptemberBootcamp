@@ -9,19 +9,16 @@ public class DashboardPage extends ProjectSpecificMethods {
 	public DashboardPage clickNewDashboard() {
 		
 		click(locateElement(Locators.XPATH, prop.getProperty("dashboard.new.xpath")));
+		pause(2000);
 		return this;
 	}
-
-	public DashboardPage enterName(String dashboardName) {
-		
-		type(locateElement(Locators.ID, prop.getProperty("dashboard.name.id")), dashboardName);
-		return this;
-	}
-
 	
 	public DashboardPage enterDashboardName(String dashboardName) {
+		waitUntilElementLocated(Locators.XPATH, prop.getProperty("dashboard.name.id"));
+		click(locateElement(Locators.XPATH,prop.getProperty("dashboard.name.id")));
 		type(locateElement(Locators.ID, prop.getProperty("dashboard.name.id")), dashboardName);
-		
+	//	moveToElement(locateElement(Locators.XPATH,prop.getProperty("dashboard.name.id")));
+		//actionSendKeys(locateElement(Locators.XPATH,prop.getProperty("dashboard.name.id")), dashboardName);
 		return this;
 	}
 	
@@ -83,6 +80,16 @@ public class DashboardPage extends ProjectSpecificMethods {
 		waitUntilElementLocated(Locators.XPATH, prop.getProperty("dashboard.dashboardlink.xpath"));
 		click(locateElement(Locators.XPATH, prop.getProperty("dashboard.dashboardlink.xpath")));
 		pause(20000);
+		return this;
+	}
+	
+	public DashboardPage searchRecentDashboard(String dashboardName) {
+		
+		type(locateElement(Locators.XPATH,prop.getProperty("dashboard.recentsearch.xpath")), dashboardName);
+		return this;
+	}
+	
+	public DashboardPage validateDashboardName() {
 		return this;
 	}
 }
