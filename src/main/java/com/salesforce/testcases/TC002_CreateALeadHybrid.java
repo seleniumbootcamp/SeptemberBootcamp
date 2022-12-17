@@ -1,13 +1,10 @@
 package com.salesforce.testcases;
 
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.framework.testng.api.base.ProjectSpecificMethods;
-import com.salesforce.pages.HomePageHybrid;
-import com.salesforce.pages.LoginPageHybrid;
-import com.salesforce.pages.HomePage;
+import com.salesforce.pages.LoginPage;
 
 public class TC002_CreateALeadHybrid extends ProjectSpecificMethods {
 	
@@ -21,11 +18,21 @@ public class TC002_CreateALeadHybrid extends ProjectSpecificMethods {
 	}
 	
 	@Test(dataProvider = "Dynamic_Data")
-	public void createLeadTC002Hybrid(String lastName, String company, String expected) throws InterruptedException {
+	public void createLeadTC002Hybrid(String userName,String Password,String lastName, String company, String expected) throws InterruptedException {
 		
-		new LoginPageHybrid().enterUsername().enterPassword().clickLogin()
-		.clickAppLauncher().clickSales().clickLeadLabel()
-		.clickNewButton().selectSalutationAsMr().enterLastName(lastName).enterCompanyName(company).clickSaveButton()
+		LoginPage loginPage = new LoginPage();
+		
+		loginPage.enterUsername(userName)
+		.enterPassword(Password)
+		.clickLogin()
+		.clickAppLauncher()
+		.clickSales()
+		.clickLeadLabel()
+		.clickNewButton()
+		.selectSalutationAsMr()
+		.enterLastName(lastName)
+		.enterCompanyName(company)
+		.clickSaveButton()
 		.verifyLeadName(expected);
 	}
 }
