@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverInstance  {
-
+//Driver instance class
 
 	public String username = "kmadhitya";
     public String accesskey = "TD7W2wLmZXne9OtgqNEfGOWBj5ol62JeQbujKyL04bbM0G0NAH";
